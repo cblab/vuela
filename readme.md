@@ -1,6 +1,8 @@
 use **php artisan queue:work redis** or supervisor 
 with this config to create redis worker queues for elasticsearch:
 
+
+
 [program:laravel-worker]
 process_name=%(program_name)s_%(process_num)02d
 command=php /var/www/your_app_name/artisan queue:work redis --sleep=3 --tries=3
