@@ -1,0 +1,14 @@
+{
+  "name": "app",
+  "dependencies": {
+    "html5shiv": "3.7.x",
+    "css3-mediaqueries-js": "1.0.x",
+    "jquery": "2.2.3",
+    "bootstrap": "3.x",
+    "bootstrap-sass": "3.3.7",
+    "vue": "~1.0.26",
+    "vue-resource": "^1.0.2",
+    "lodash": "^4.15.0"
+  },
+  "devDependencies": {}
+}
