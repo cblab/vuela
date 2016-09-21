@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder {
 
 class UserSeeder extends Seeder {
     public function run() {
-        \App\Models\User::create([
+        \App\User::create([
             'name' => 'admin',
             'email'     => 'chris.blab@gmail.com',
             'password'  => \Illuminate\Support\Facades\Hash::make('test123')
