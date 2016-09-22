@@ -5766,4 +5766,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+body {
+  padding-top: 70px; }
+
 /*# sourceMappingURL=admin.css.map */

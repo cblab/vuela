@@ -1,17 +1,16 @@
 @extends('layouts.admin')
-
 @section('nav')
     @include('partials.nav')
 @endsection
 
 @section('content')
 <div class="container" id="manage-vue">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Laravel Vue JS Item CRUD</h2>
-            </div>
 
+    <p class="lead">Manage items:</p>
+    <p><a href="{{ url('/admin') }}">Back to admin area</a></p>
+
+    <div class="row">
+        <div class="col-sm-12 margin-tb">
             <div class="pull-right">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">
                     Create Item
