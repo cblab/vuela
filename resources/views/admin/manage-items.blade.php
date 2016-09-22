@@ -10,7 +10,7 @@
     <p><a href="{{ url('/admin') }}">Back to admin area</a></p>
 
     <div class="row">
-        <div class="col-sm-12 margin-tb">
+        <div class="col-md-12 row-padding">
             <div class="pull-right">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">
                     Create Item
@@ -18,7 +18,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Item Listing -->
     <table class="table table-bordered">
