@@ -13,9 +13,7 @@ var paths = {
     'lodash':            vendor.path +'/lodash/',
     'vue' :              vendor.path + '/vue/',
     'vueresource':       vendor.path + '/vue-resource/',
-    'bootstrap_select':  vendor.path + '/bootstrap-select/',
-    'backend' :          asset_js_path.path + 'vue/pages/backend/',
-    'frontend' :         asset_js_path.path + 'vue/pages/frontend/'
+    'bootstrap_select':  vendor.path + '/bootstrap-select/'
 };
 
 /** frontend */
