@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="{{route('manage-items') }}">Mange Tasks</a>
+                    <a href="{{route('manage-tasks') }}">Mange Tasks</a>
                 </td>
             </tr>
         </tbody>

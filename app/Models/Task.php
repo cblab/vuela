@@ -8,4 +8,5 @@ use Laravel\Scout\Searchable;
 class Task extends Model
 {
     use Searchable;
+    public $fillable = ['description','completed'];
 }

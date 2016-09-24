@@ -1,15 +1,15 @@
 <?php
 Route::get('/', function() {
-    //$tasks = App\Models\Task::latest()->get();
     return view('index');
 });
 
-Route::get('/api/tasks', function () {
+Route::get('/latest-tasks', function () {
     return App\Models\Task::latest()->get();
 });
 
 Route::group(['middleware' => ['web']], function() {
     Route::resource('items','Admin\ItemController');
+    Route::resource('tasks','Admin\TaskController');
 
     // Login Routes...
     Route::get('admin', [
@@ -22,6 +22,12 @@ Route::group(['middleware' => ['web']], function() {
         'middleware' => 'auth',
         'uses'       => 'Admin\ItemController@manageItems',
         'as'         => 'manage-items'
+    ]);
+
+    Route::get('manage-tasks', [
+        'middleware' => 'auth',
+        'uses'       => 'Admin\TaskController@manageTasks',
+        'as'         => 'manage-tasks'
     ]);
 
     Route::get('login',   ['as' => 'login',       'uses' => 'Auth\LoginController@showLoginForm']);

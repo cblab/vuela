@@ -48,7 +48,7 @@ Vue.component('tasks', {
         };
     },
     created: function () {
-        $.getJSON('/api/tasks', function(tasks) {
+        $.getJSON('/latest-tasks', function(tasks) {
            this.list = tasks;
         }.bind(this));
     }

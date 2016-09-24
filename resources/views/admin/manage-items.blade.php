@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<div class="container" id="manage-vue">
+<div class="container" id="manage-items">
 
     <p class="lead">Manage items:</p>
     <p><a href="{{ url('/admin') }}">Back to admin area</a></p>
@@ -66,7 +66,6 @@
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Submit</button>
-
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,5 @@
 new Vue({
-    el: '#manage-vue',
+    el: '#manage-items',
     data: {
         items: [],
         pagination: {
