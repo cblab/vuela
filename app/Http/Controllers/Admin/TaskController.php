@@ -54,9 +54,8 @@ class TaskController extends Controller
         return response()->json($create);
     }
 
-
     /**
-     * Update item in storage.
+     * Update task in db.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -65,14 +64,29 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'description'       => 'required',
-            'completed'  => 'required',
+            'description' => 'required',
+            'completed'   => 'required',
         ]);
 
         $edit = Task::find($id)->update($request->all());
         return response()->json($edit);
     }
 
+    /**
+     * search task in elastic.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $this->validate($request, [
+            'query' => 'required'
+        ]);
+        $tasks    = Task::search($request->get('query'))->get();
+        return response()->json($tasks);
+    }
 
     /**
      * Remove item from storage.

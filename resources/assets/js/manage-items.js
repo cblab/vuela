@@ -59,16 +59,16 @@ new Vue({
     methods : {
         getVueItems: function(page){
             this.$http.get('/items?page='+page).then((response) => {
-                this.$set('items', response.data.data.data);
+            this.$set('items', response.data.data.data);
             this.$set('pagination', response.data.pagination);
-        });
+            });
         },
 
 
         createItem: function(){
             var input = this.newItem;
             this.$http.post('/items',input).then((response) => {
-                this.changePage(this.pagination.current_page);
+            this.changePage(this.pagination.current_page);
             this.newItem = {'title':'','description':''};
 
             $("#create-item").modal('hide');
@@ -80,9 +80,9 @@ new Vue({
 
         deleteItem: function(item){
             this.$http.delete('/items/'+item.id).then((response) => {
-                this.changePage(this.pagination.current_page);
+            this.changePage(this.pagination.current_page);
             toastr.success('Item Deleted Successfully.', 'Success Alert', {timeOut: 5000});
-        });
+            });
         },
 
 
@@ -96,9 +96,8 @@ new Vue({
         updateItem: function(id){
             var input = this.fillItem;
             this.$http.put('/items/'+id,input).then((response) => {
-                this.changePage(this.pagination.current_page);
+            this.changePage(this.pagination.current_page);
             this.fillItem = {'title':'','description':'','id':''};
-
             $("#edit-item").modal('hide');
             toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {

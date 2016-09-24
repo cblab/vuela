@@ -8,13 +8,13 @@
     <link href="css/frontend.css" rel="stylesheet">
 </head>
 <body>
-
     <div class="container">
         <tasks></tasks>
     </div>
 
     <template id="tasks-template">
-        <h1>My Tasks</h1>
+        <h1>item list</h1>
+        <p><a href="{{url('/search') }}">search-test-page</a></p>
         <ul class="list-group">
             <li class="list-group-item" v-for="task in list">
                 @{{ task.description }}

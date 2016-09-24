@@ -3,6 +3,15 @@ Route::get('/', function() {
     return view('index');
 });
 
+Route::get('/search', function() {
+    return view('search');
+});
+
+
+Route::get('/task-search', [
+    'uses' => 'Admin\TaskController@search'
+]);
+
 Route::get('/latest-tasks', function () {
     return App\Models\Task::latest()->get();
 });
