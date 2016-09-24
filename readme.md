@@ -1,7 +1,7 @@
 vuela is a laravel 5.3 test application utilizing laravel scout.
 
-use php artisan queue:work redis 
-or supervisor to create redis worker queues for elasticsearch:
+use **php artisan queue:work redis** 
+or **supervisor** to create redis worker queues for elasticsearch:
 
 ---
 [program:laravel-worker]
