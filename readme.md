@@ -3,7 +3,7 @@ vuela is a laravel 5.3 test application utilizing laravel scout.
 use **php artisan queue:work redis** 
 or **supervisor** (apt-get install ) to create redis worker queues for elasticsearch:
 
-to install supervisor use: 'apt-get install supervisor' on ubunut
+to install supervisor use: 'apt-get install supervisor' on ubuntu
 
 ---
 [program:laravel-worker]
