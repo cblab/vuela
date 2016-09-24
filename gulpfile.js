@@ -13,6 +13,7 @@ var paths = {
     'lodash':            vendor.path +'/lodash/',
     'vue' :              vendor.path + '/vue/',
     'vueresource':       vendor.path + '/vue-resource/',
+    'bootstrap_select':  vendor.path + '/bootstrap-select/',
     'backend' :          asset_js_path.path + 'vue/pages/backend/',
     'frontend' :         asset_js_path.path + 'vue/pages/frontend/'
 };
@@ -31,56 +32,10 @@ elixir(mix => {
         ], './resources/assets/js/temp/frontend-app.js').webpack('./resources/assets/js/temp/frontend-app.js');
 });
 
-/* executing  gulp should look like this frontend-app.js and admin-app.js are intermediate compilements now.
-   They should not be modified as they are used as basis for babel later on.
-   I just wanted a seperation of frontend and backend js files.
-┌───────────────┬───────────────────────────────┬───────────────────────────────────────────────────────────────────┬───────────────────────────────────────┐
-│ Task          │ Summary                       │ Source Files                                                      │ Destination                           │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.sass()    │ 1. Compiling Sass             │ resources/assets/sass/frontend.scss                               │ public/css/frontend.css               │
-│               │ 2. Autoprefixing CSS          │                                                                   │                                       │
-│               │ 3. Concatenating Files        │                                                                   │                                       │
-│               │ 4. Writing Source Maps        │                                                                   │                                       │
-│               │ 5. Saving to Destination      │                                                                   │                                       │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.copy()    │ 1. Saving to Destination      │ ./bower_components/bootstrap-sass/assets/fonts/...                │ public/fonts                          │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.scripts() │ 1. Concatenating Files        │ ./bower_components/jquery/dist/jquery.js                          │ ./resources/assets/js/frontend-app.js │
-│               │ 2. Writing Source Maps        │ ./bower_components/html5shiv/dist/html5shiv.js                    │                                       │
-│               │ 3. Saving to Destination      │ ./bower_components/vue/dist/vue.js                                │                                       │
-│               │                               │ ./bower_components/lodash/dist/lodash.core.js                     │                                       │
-│               │                               │ ./bower_components/vue-resource/dist/vue-resource.js              │                                       │
-│               │                               │ ./resources/assets/js/app.js                                      │                                       │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.webpack() │ 1. Transforming ES2015 to ES5 │ resources/assets/js/frontend-app.js                               │ public/js/frontend-app.js             │
-│               │ 2. Writing Source Maps        │                                                                   │                                       │
-│               │ 3. Saving to Destination      │                                                                   │                                       │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.sass()    │ 1. Compiling Sass             │ resources/assets/sass/backend.scss                                │ public/css/backend.css                │
-│               │ 2. Autoprefixing CSS          │                                                                   │                                       │
-│               │ 3. Concatenating Files        │                                                                   │                                       │
-│               │ 4. Writing Source Maps        │                                                                   │                                       │
-│               │ 5. Saving to Destination      │                                                                   │                                       │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.copy()    │ 1. Saving to Destination      │ ./bower_components/bootstrap-sass/assets/fonts/bootstrap/...      │ public/fonts                          │
-├───────────────┼───────────────────────────────┼───────────────────────────────────────────────────────────────────┼───────────────────────────────────────┤
-│ mix.scripts() │ 1. Concatenating Files        │ ./bower_components/jquery/dist/jquery.js                          │ public/js/backend.js                  │
-│               │ 2. Writing Source Maps        │ ./bower_components/html5shiv/dist/html5shiv.js                    │                                       │
-│               │ 3. Saving to Destination      │ ./bower_components/bootstrap-sass/assets/javascripts/bootstrap.js │                                       │
-└───────────────┴───────────────────────────────┴───────────────────────────────────────────────────────────────────┴───────────────────────────────────────┘
-
-the js console in chrome should look like this:
- >> window._
- <- function lodash()
- >> window.$
- <- function jQuery()
- >> window.Vue
- <- function Vue()
-*/
-
 /** admin */
 elixir(mix => {
-    mix.sass(["admin.scss"], 'public/css/admin.css')
+    mix.sass(["admin.scss",
+               paths.bootstrap_select  + 'dist/css/bootstrap-select.css'], 'public/css/admin.css')
         .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
         .scripts([
             paths.jquery            + "dist/jquery.js",
@@ -88,6 +43,9 @@ elixir(mix => {
             paths.vue               + "dist/vue.js",
             paths.lodash            + "dist/lodash.core.js",
             paths.vueresource       + "dist/vue-resource.js",
-            asset_js_path.path      + "/admin-app.js"
+            paths.bootstrap_select  + "dist/js/bootstrap-select.js",
+            asset_js_path.path      + "/admin-app.js",
+            asset_js_path.path      + "/manage-items.js",
+            asset_js_path.path      + "/manage-tasks.js",
         ], './resources/assets/js/temp/admin-app.js').webpack('./resources/assets/js/temp/admin-app.js')
 });
