@@ -15,8 +15,8 @@
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
-                    <li {{{ (Request::is('backend/config*') ? 'class=active' : '') }}}><a href="{{ route('manage-items')  }}">Items</a></li>
-                    <li {{{ (Request::is('backend/shows*') ? 'class=active' : '') }}}><a href="{{ route('manage-items')  }}">Tasks</a></li>
+                    <li {{{ (Request::is('manage-items*') ? 'class=active' : '') }}}><a href="{{ route('manage-items')  }}">Items</a></li>
+                    <li {{{ (Request::is('manage-tasks*') ? 'class=active' : '') }}}><a href="{{ route('manage-tasks')  }}">Tasks</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
