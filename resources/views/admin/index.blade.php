@@ -16,12 +16,12 @@
         <tbody>
             <tr>
                 <td>
-                    <a href="{{route('manage-items') }}">Manage Items</a>
+                    <a href="{{route('manage-tasks') }}">Manage Tasks</a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="{{route('manage-tasks') }}">Manage Tasks</a>
+                    <a href="{{route('manage-items') }}">Manage Items</a>
                 </td>
             </tr>
         </tbody>

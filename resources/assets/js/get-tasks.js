@@ -11,7 +11,3 @@ Vue.component('tasks', {
         }.bind(this));
     }
 });
-
-new Vue({
-    el: 'body'
-});

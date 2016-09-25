@@ -84,7 +84,7 @@ class TaskController extends Controller
         $this->validate($request, [
             'query' => 'required'
         ]);
-        $tasks    = Task::search($request->get('query'))->get();
+        $tasks    = Task::search($request->get('query'))->where('completed','0')->get();
         return response()->json($tasks);
     }
 

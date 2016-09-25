@@ -27,8 +27,8 @@ elixir(mix => {
             paths.lodash            + "dist/lodash.core.js",
             paths.vueresource       + "dist/vue-resource.js",
             asset_js_path.path      + "/app.js",
-            // asset_js_path.path      + "/get-tasks.js",
-            //asset_js_path.path      + "/search-tasks.js",
+            asset_js_path.path      + "/get-tasks.js",
+            asset_js_path.path      + "/search-tasks.js",
         ], './resources/assets/js/temp/frontend-app.js').webpack('./resources/assets/js/temp/frontend-app.js');
 });
 

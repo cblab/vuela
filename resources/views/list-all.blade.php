@@ -13,7 +13,7 @@
     </div>
 
     <template id="tasks-template">
-        <h1>item list</h1>
+        <h1>task list</h1>
         <p><a href="{{url('/') }}">search-test-page</a></p>
         <ul class="list-group">
             <li class="list-group-item" v-for="task in list">

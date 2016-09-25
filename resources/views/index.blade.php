@@ -8,27 +8,41 @@
     <link href="css/frontend.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"><p><a href="{{url('/admin') }}">admin area</a></p></div>
+        <div class="col-md-2"><p><a href="{{url('/list-all') }}">list all tasks</a></p></div>
+        <div class="col-md-8">&nbsp;</div>
+    </div>
+</div>
+
 <div class="container">
     <search-tasks></search-tasks>
 </div>
 
 <template id="tasks-search-template">
-    <h4>Search Tasks</h4>
-    <p>(press enter after input, for example 'ipsum' - new tasks can be created in the admin area)</p>
-    <input type="text" v-model="query" v-on:keyup="search" debouce="500">
+    <div class="row">
+        <div class="col-md-12">
+                <h2>Search Tasks</h2>
+                <p>(for example search 'ipsum' - new tasks can be created in the admin area)</p>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">@My tasks:</span>
+                    <input type="text" class="form-control" placeholder="enter task terms" aria-describedby="sizing-addon1" v-model="query" v-on:keyup="search" debouce="500">
+                </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-bordered"  v-if="tasks.length > 0">
+                <tr>
+                    <th>Task description:</th>
+                </tr>
 
-    <div class="table-responsive">
-        <table class="table table-bordered"  v-if="tasks.length > 0">
-            <tr>
-                <th>task description</th>
-            </tr>
-
-            <tr v-for="task in tasks">
-                <td>@{{ task.description }}</td>
-            </tr>
-        </table>
+                <tr v-for="task in tasks">
+                    <td>@{{ task.description }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <p><a href="{{url('/list-all') }}">back to list-test-page</a></p>
 </template>
 
 <script>

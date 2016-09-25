@@ -25607,6 +25607,7 @@ next();
  * the application, or feel free to tweak this setup for your needs.
  */
 //Vue.component('tasks', require('./components/tasks.vue'));
+
 Vue.component('tasks', {
     template: '#tasks-template',
     data: function () {
@@ -25616,11 +25617,10 @@ Vue.component('tasks', {
     },
     created: function () {
         $.getJSON('/latest-tasks', function(tasks) {
-           this.list = tasks;
+            this.list = tasks;
         }.bind(this));
     }
 });
-
 Vue.component('search-tasks', {
     template: '#tasks-search-template',
     data: function () {
@@ -25635,7 +25635,7 @@ Vue.component('search-tasks', {
     },
     methods : {
         search: function(){
-            if(tasks.length > 3) {
+            if(this.query.length > 3) {
                 $.getJSON('/task-search?query='+this.query, function(tasks) {
                     this.tasks = tasks;
                 }.bind(this));
@@ -25647,5 +25647,4 @@ Vue.component('search-tasks', {
 new Vue({
     el: 'body'
 });
-
 //# sourceMappingURL=frontend-app.js.map
