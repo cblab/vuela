@@ -68,9 +68,11 @@ Vue.component('search-tasks', {
     },
     methods : {
         search: function(){
-            $.getJSON('/task-search?query='+this.query, function(tasks) {
-                this.tasks = tasks;
-            }.bind(this));
+            if(tasks.length > 3) {
+                $.getJSON('/task-search?query='+this.query, function(tasks) {
+                    this.tasks = tasks;
+                }.bind(this));
+            }
         }
     }
 });

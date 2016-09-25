@@ -13,19 +13,21 @@
 </div>
 
 <template id="tasks-search-template">
-    <h1>Search Tasks (press enter after input)</h1>
-    <input type="text" v-model="query" v-on:keyup.enter="search">
+    <h4>Search Tasks</h4>
+    <p>(press enter after input, for example 'ipsum' - new tasks can be created in the admin area)</p>
+    <input type="text" v-model="query" v-on:keyup="search" debouce="500">
 
-    <table class="table table-bordered"  v-if="tasks.length > 0">
-        <tr>
-            <th>task description</th>
-        </tr>
+    <div class="table-responsive">
+        <table class="table table-bordered"  v-if="tasks.length > 0">
+            <tr>
+                <th>task description</th>
+            </tr>
 
-        <tr v-for="task in tasks">
-            <td>@{{ task.description }}</td>
-        </tr>
-    </table>
-
+            <tr v-for="task in tasks">
+                <td>@{{ task.description }}</td>
+            </tr>
+        </table>
+    </div>
     <p><a href="{{url('/list-all') }}">back to list-test-page</a></p>
 </template>
 
