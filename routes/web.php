@@ -3,10 +3,9 @@ Route::get('/', function() {
     return view('index');
 });
 
-Route::get('/search', function() {
-    return view('search');
+Route::get('/list-all', function() {
+    return view('list-all');
 });
-
 
 Route::get('/task-search', [
     'uses' => 'Admin\TaskController@search'
