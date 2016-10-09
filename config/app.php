@@ -165,8 +165,6 @@ return [
          * Package Service Providers...
          */
         Laravel\Scout\ScoutServiceProvider::class,
-        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -176,6 +174,23 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * Third Party Providers...
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Cyvelnet\Laravel5Fractal\Laravel5FractalServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Hootlex\Moderation\ModerationServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
+        Eusonlito\LaravelMeta\MetaServiceProvider::class,
+        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        RobBrazier\Piwik\PiwikServiceProvider::class
+
+
 
     ],
 
@@ -213,17 +228,22 @@ return [
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        'Redis' => Illuminate\Support\Facades\Redis::class,
+        'Redis'   => Illuminate\Support\Facades\Redis::class,
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
-        'Route' => Illuminate\Support\Facades\Route::class,
-        'Schema' => Illuminate\Support\Facades\Schema::class,
+        'Route'   => Illuminate\Support\Facades\Route::class,
+        'Schema'  => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
-        'URL' => Illuminate\Support\Facades\URL::class,
+        'URL'     => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'View'    => Illuminate\Support\Facades\View::class,
+        'Image'   => Intervention\Image\Facades\Image::class,
+        'Fractal' => Cyvelnet\Laravel5Fractal\Facades\Fractal::class,
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        'Active'  => HieuLe\Active\Facades\Active::class,
+        'Meta'    => Eusonlito\LaravelMeta\Facade::class,
+        'Piwik'   => RobBrazier\Piwik\Facades\Piwik::class
     ],
 
 ];
