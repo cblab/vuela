@@ -45,9 +45,7 @@
     </div>
 </template>
 
-<script>
-    window.Laravel = { csrfToken: '{{ csrf_token() }}' };
-</script>
+@include('partials.ajax-csrf')
 <script src="js/frontend-app.js"></script>
 </body>
 </html>

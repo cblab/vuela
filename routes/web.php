@@ -38,6 +38,25 @@ Route::group(['middleware' => ['web']], function() {
         'as'         => 'manage-tasks'
     ]);
 
+    Route::get('manage-avatar',[
+        'middleware' => 'auth',
+        'uses'       => 'Admin\UploadController@index',
+        'as'         => 'manage-avatar'
+    ]);
+
+    Route::post('store-avatar',[
+        'middleware' => 'auth',
+        'uses'       => 'Admin\UploadController@store',
+        'as'         => 'store-avatar'
+    ]);
+
+    Route::get('get-avatar',[
+        'middleware' => 'auth',
+        'uses'       => 'Admin\UploadController@getAvatar',
+        'as'         => 'get-avatar'
+    ]);
+
+
     Route::get('login',   ['as' => 'login',       'uses' => 'Auth\LoginController@showLoginForm']);
     Route::post('login',  ['as' => 'login.post',  'uses' => 'Auth\LoginController@login']);
     Route::get('logout',  ['as' => 'logout',      'uses' => 'Auth\LoginController@logout']);

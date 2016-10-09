@@ -16,6 +16,11 @@
         <tbody>
             <tr>
                 <td>
+                    <a href="{{route('manage-avatar') }}">Upload an avatar image</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <a href="{{route('manage-tasks') }}">Manage Tasks</a>
                 </td>
             </tr>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use App\Http\Middleware\Avatar;
 
 class TaskController extends Controller
 {
@@ -30,8 +31,7 @@ class TaskController extends Controller
                 'from'         => $items->firstItem(),
                 'to'           => $items->lastItem()
             ],
-
-            'data' => $items
+            'data' => $items,
         ];
 
         return response()->json($response);

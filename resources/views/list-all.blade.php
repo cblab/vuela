@@ -8,20 +8,20 @@
     <link href="css/frontend.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <tasks></tasks>
-    </div>
+<div class="container">
+    <tasks></tasks>
+</div>
 
-    <template id="tasks-template">
-        <h1>task list</h1>
-        <p><a href="{{url('/') }}">search-test-page</a></p>
-        <ul class="list-group">
-            <li class="list-group-item" v-for="task in list">
-                @{{ task.description }}
-            </li>
-        </ul>
-    </template>
+<template id="tasks-template">
+    <h1>task list</h1>
+    <p><a href="{{url('/') }}">search-test-page</a></p>
+    <ul class="list-group">
+        <li class="list-group-item" v-for="task in list">
+            @{{ task.description }}
+        </li>
+    </ul>
+</template>
 
-    <script src="js/frontend-app.js"></script>
+<script src="js/frontend-app.js"></script>
 </body>
 </html>

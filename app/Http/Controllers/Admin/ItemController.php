@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
+use App\Http\Middleware\Avatar;
+
 
 class ItemController extends Controller
 {
@@ -30,8 +32,7 @@ class ItemController extends Controller
                 'from'         => $items->firstItem(),
                 'to'           => $items->lastItem()
             ],
-
-            'data' => $items
+            'data'       => $items,
         ];
 
         return response()->json($response);

@@ -45,6 +45,7 @@ elixir(mix => {
             paths.vueresource       + "dist/vue-resource.js",
             paths.bootstrap_select  + "dist/js/bootstrap-select.js",
             asset_js_path.path      + "/admin-app.js",
+            asset_js_path.path      + "/get-avatar.js",
             asset_js_path.path      + "/manage-items.js",
             asset_js_path.path      + "/manage-tasks.js",
         ], './resources/assets/js/temp/admin-app.js').webpack('./resources/assets/js/temp/admin-app.js')

@@ -10,13 +10,15 @@
             <a class="navbar-brand" href="{{ url('/admin') }}">Overview</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" id="avatar">
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li {{{ (Request::is('manage-items*') ? 'class=active' : '') }}}><a href="{{ route('manage-items')  }}">Items</a></li>
                     <li {{{ (Request::is('manage-tasks*') ? 'class=active' : '') }}}><a href="{{ route('manage-tasks')  }}">Tasks</a></li>
+
+                    <avatar></avatar>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
@@ -28,4 +30,8 @@
             </ul>
         </div>
     </div>
+
+    <template id="avatar-template">
+        <li> <img :src="avatarurl"></li>
+    </template>
 </nav>

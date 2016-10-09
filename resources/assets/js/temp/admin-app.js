@@ -27499,6 +27499,29 @@ next();
  * Could not figure out how this works yet. Using a gulp workaraound.
  */
 //Vue.component('manage-items', require('./components/admin/manage-vue.vue'));
+Vue.component('avatar', {
+    template: '#avatar-template',
+    data: function () {
+        return {
+            avatar: ''
+        };
+    },
+    ready: function () {
+        console.log('getAvatars called');
+        this.getAvatars();
+    },
+    methods : {
+        getAvatars: function() {
+            $.getJSON('/get-avatar', function(avatar) {
+                this.avatar = avatar;
+            }.bind(this));
+        }
+    }
+});
+
+new Vue({
+    el: '#avatar'
+});
 new Vue({
     el: '#manage-items',
     data: {
